@@ -1,0 +1,49 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(https://media.istockphoto.com/id/875739500/photo/watercolor-paper-texture.jpg?s=2048x2048&w=is&k=20&c=UE2Hau0oGycRx4pmwZmLREw9GMiAK0arxDA5u62gYfM=);
+}
+
+.container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    perspective: 1000px; /* Add perspective to the parent */
+}
+
+.hover-me, .surprise {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hide the backface of the elements */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.hover-me {
+    background-color: blue;
+    cursor: pointer;
+    transform: rotateY(0deg); /* Initial rotation */
+    transition: transform 0.8s; /* Smooth transition for rotation */
+}
+
+.surprise {
+    background-color: red;
+    transform: rotateY(180deg); /* Initial rotation for the backface */
+    opacity: 0; /* Initially hidden */
+    transition: transform 0.8s, opacity 0.8s; /* Smooth transition for rotation and opacity */
+}
+
+.container:hover .hover-me {
+    transform: rotateX(-180deg); /* Rotate the front face */
+}
+
+.container:hover .surprise {
+    transform: rotateX(0deg); /* Rotate the back face to front */
+    opacity: 1; /* Show the surprise */
+}

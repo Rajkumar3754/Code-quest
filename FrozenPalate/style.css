@@ -1,0 +1,190 @@
+/* Add this CSS to your style.css file */
+
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('https://images.pexels.com/photos/2677814/pexels-photo-2677814.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    margin: 0;
+}
+
+
+/* Add this CSS to your style.css file */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 40px); /* Adjust based on header height and padding */
+    transition: transform 0.3s ease; /* Smooth transition effect */
+}
+
+.container:hover {
+    transform: translateY(-10px); /* Move the container up on hover */
+}
+
+.add {
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+}
+
+.add:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Darken the background on hover */
+}
+
+
+
+/* Add this CSS to your style.css file */
+
+@keyframes moveUpDown {
+    0% {
+        transform: translateY(0); /* Initial position */
+    }
+    50% {
+        transform: translateY(-10px); /* Move up halfway through the animation */
+    }
+    100% {
+        transform: translateY(0); /* Return to the initial position */
+    }
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 40px); /* Adjust based on header height and padding */
+    animation: moveUpDown 3s ease infinite; /* Apply the animation */
+}
+
+.add {
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+}
+
+.add:hover {
+    background-color: rgba(0, 0, 0, 0.7); /* Darken the background on hover */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Add this CSS to your style.css file */
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: color 0.3s; /* Smooth transition effect */
+}
+
+nav ul li a:hover {
+    color: #ff6347; /* Change the color on hover */
+}
+
+
+
+
+
+header {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 0;
+    
+}
+
+/* Add this CSS to your style.css file */
+
+header {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px 0;
+    background-image: url('https://www.shutterstock.com/image-vector/ice-cream-logo-simple-cartoon-260nw-2212851315.jpg');
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: auto 100%;
+}
+
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    gap: 25px;
+    list-style-type: none;
+    padding: 0 30px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 40px); /* Adjust based on header height and padding */
+}
+
+.add {
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+}
+
+footer {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    text-align: center;
+}
+
+table {
+    width: 80%;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.9); /* Full background color */
+    border-radius: 10px; /* Rounded corners */
+}
+
+td {
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.1);
+}
