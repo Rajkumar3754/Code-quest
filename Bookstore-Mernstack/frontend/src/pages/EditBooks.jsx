@@ -4,31 +4,34 @@ import Spinner from "../components/Spinner";
 import axios from 'axios';
 import { useNavigate, useParams } from "react-router-dom";
 
-const EditBooks= () => {
+const EditBooks = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [publishYear, setPublishYear] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const {id} = useParams()
+  const { id } = useParams();
 
-  useEffect(()=>{
-    setLoading(true)
-    axios.get(`http://localhost:3500/books/${id}`)
-    .then((response)=>{
-      setAuthor(response.data.author);
-      setPublishYear(response.data.publishYear)
-      setTitle(response.data.title)
-      setLoading(false)
-    }).catch((error)=>{
-      setLoading(false);
-      alert(`An error occurred. Please check the console.`);
-      console.log(error)
-    })
-  },[])
+  useEffect(() => {
+    const fetchBookDetails = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get(`http://localhost:3500/books/${id}`);
+        setAuthor(response.data.author);
+        setPublishYear(response.data.publishYear);
+        setTitle(response.data.title);
+        setLoading(false);
+      } catch (error) {
+        setLoading(false);
+        alert(`An error occurred. Please check the console.`);
+        console.log(error);
+      }
+    };
 
-  const handleEditBook = () => {
-    // Validate that publishYear is not empty
+    fetchBookDetails();
+  }, [id]);
+
+  const handleEditBook = async () => {
     if (!publishYear) {
       alert('Please enter the publish year.');
       return;
@@ -38,19 +41,18 @@ const EditBooks= () => {
     const data = {
       title,
       author,
-      publishYear
+      publishYear,
     };
 
-    axios.put(`http://localhost:3500/books/${id}`, data)
-      .then(() => {
-        setLoading(false);
-        navigate('/');
-      })
-      .catch((error) => {
-        setLoading(false);
-        alert(`An error occurred. Please check the console.`);
-        console.error('Error creating book:', error);
-      });
+    try {
+      await axios.put(`http://localhost:3500/books/${id}`, data);
+      setLoading(false);
+      navigate('/');
+    } catch (error) {
+      setLoading(false);
+      alert(`An error occurred. Please check the console.`);
+      console.error('Error editing book:', error);
+    }
   };
 
   return (

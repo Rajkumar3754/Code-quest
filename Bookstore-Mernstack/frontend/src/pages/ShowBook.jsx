@@ -8,19 +8,23 @@ const ShowBook = () => {
   const [book, setBook] = useState({});
   const [loading, setLoading] = useState(false);
   const { id } = useParams();
+
   useEffect(() => {
-    setLoading(true);
-    axios
-      .get(`http://localhost:3500/books/${id}`)
-      .then((response) => {
+    const fetchBook = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get(`http://localhost:3500/books/${id}`);
         setBook(response.data);
-        setLoading(false);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.log(error);
+      } finally {
         setLoading(false);
-      });
-  }, []);
+      }
+    };
+
+    fetchBook();
+  }, [id]);
+
   return (
     <div className="p-4">
       <BackButton />

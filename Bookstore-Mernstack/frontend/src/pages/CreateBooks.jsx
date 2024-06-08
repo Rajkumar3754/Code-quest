@@ -11,7 +11,7 @@ const CreateBooks = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSaveBook = () => {
+  const handleSaveBook = async () => {
     // Validate that publishYear is not empty
     if (!publishYear) {
       alert('Please enter the publish year.');
@@ -25,16 +25,15 @@ const CreateBooks = () => {
       publishYear
     };
 
-    axios.post('http://localhost:3500/books', data)
-      .then(() => {
-        setLoading(false);
-        navigate('/');
-      })
-      .catch((error) => {
-        setLoading(false);
-        alert(`An error occurred. Please check the console.`);
-        console.error('Error creating book:', error);
-      });
+    try {
+      await axios.post('http://localhost:3500/books', data);
+      setLoading(false);
+      navigate('/');
+    } catch (error) {
+      setLoading(false);
+      alert('An error occurred. Please check the console.');
+      console.error('Error creating book:', error);
+    }
   };
 
   return (
