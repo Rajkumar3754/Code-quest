@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Card, Button } from 'react-bootstrap';
 import {  remove } from '../store/cartSlice';
- // Assuming you have a CSS file for styles
+ // Assuming you have a CSS file for style
 
 const Carts = () => {
   const products = useSelector(state => state.cart);
