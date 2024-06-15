@@ -17,7 +17,7 @@ const Product = () => {
         if (status === 'loading') {
             const timeoutId = setTimeout(() => {
                 setLoadingAlert(false);
-            }, 2000); // Hides alert after 2 seconds (adjust as needed)
+            }, 2000); // Hides alert after 2 sec (adjust as needed)
             return () => clearTimeout(timeoutId); // Cleanup function to clear timeout on unmount or status change
         }
     }, [status]);
