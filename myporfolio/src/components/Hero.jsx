@@ -3,6 +3,9 @@ import HeroImg from "../assets/hero.png";
 import { AiOutlineTwitter,AiOutlineFacebook,AiOutlineLinkedin } from "react-icons/ai";
 
 const Hero = () => {
+  const config ={
+    subtitle : 'Im a fullstack developer '
+  }
   return (
     <section className="flex flex-col md:flex-row px-5 py-32  bg-primary justify-center">
       <div className="md:w-1/2  flex flex-col">
@@ -10,7 +13,7 @@ const Hero = () => {
         <h1 className=" text-white text-6xl font-font-sriracha ">
           Hi,
           <br /> Im <span className="text-black">Raj</span> kumar{" "}
-          <p className="text-2xl">Im a fullstack developer </p>
+          <p className="text-2xl">{config.subtitle} </p>
         </h1>
 
         <div className="flex py-10   ">
